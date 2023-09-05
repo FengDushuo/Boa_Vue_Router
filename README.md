@@ -279,7 +279,7 @@ Git项目地址：<https://github.com/FengDushuo/AX3000_Web> （暂定）
 
 **Git流程**大致如下：
 
-![git](media/33189322e21e663303067cd569d37653.png)
+![git](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/33189322e21e663303067cd569d37653.png)
 
 **Git流程规范：**
 
@@ -297,7 +297,7 @@ Git项目地址：<https://github.com/FengDushuo/AX3000_Web> （暂定）
 
 需求分析，开发，测试，上线的流程规范：
 
-![team_workflow](media/cf5529ec262664b801a96515b7d011ee.png)
+![team_workflow](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/cf5529ec262664b801a96515b7d011ee.png)
 
 ### 开源项目管理
 
@@ -319,7 +319,7 @@ Git项目地址：<https://github.com/FengDushuo/AX3000_Web> （暂定）
 
 项目采用前后端分离的开发方式，整体架构如图所示：
 
-![structure_whole](media/7280b97321181b60fd327fca5ea8782c.png)
+![structure_whole](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/7280b97321181b60fd327fca5ea8782c.png)
 
 #### 架构说明
 
@@ -334,31 +334,31 @@ Git项目地址：<https://github.com/FengDushuo/AX3000_Web> （暂定）
 
 前端使用Vue技术，采用MVVM框架以提高效率、提升性能、提高可扩展性、防止重复造轮子、提高可维护性。MVVM框架实现了数据与视图的分离，通过数据来驱动视图，封装DOM操作。MVVM框架的大致示意图如图所示：
 
-![vue](media/9cbcb5544a644ca9da6820e8339d8827.png)
+![vue](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/9cbcb5544a644ca9da6820e8339d8827.png)
 
 项目前端基于Vue框架进行开发，其架构如图所示：
 
-![structures_web](media/d0891e459915f9afc349f129dc66205a.png)
+![structures_web](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/d0891e459915f9afc349f129dc66205a.png)
 
 #### 架构说明
 
 1.  首先浏览器发送请求，单页应用程序 (SPA) 加载单个HTML 页面并在用户与应用程序交互时动态更新该页面。浏览器一开始会加载必需的模块。
 2.  因为SPA利用JS动态变换HTML，实现UI与用户的交互，应用加载之后不会再有整页刷新。各页面的js模块可以各自独立开发。
 
-![SPA](media/2a0cfe862a2435ad546e3e13c4335ccd.png)
+![SPA](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/2a0cfe862a2435ad546e3e13c4335ccd.png)
 
 1.  前端设定为vue + webpack 的 SPA，通过 node 和 webpack 的支持把 vue 组件 build 打包成传统元素，发布到 http 服务中，请求后端服务。WebPack 可以看做是模块打包机器，它可以分析项目结构，找到 JavaScript 模块以及其它的一些浏览器不能直接运行的拓展语言：Stylus、Scss、less、TypeScript、CoffeeScript 等，并将其转换和打包为合适的格式供浏览器使用。WebPack 是一种模块化开发的方案。
 2.  页面容器层包括Vue Component，Vue Router，Vuex，以及拓展的一些UI组件库。 组件 (Component) 是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。组件使用如下：
 
-![vue component](media/6f95a92e34f00cc5ba092ac4a9e6c65a.png)
+![vue component](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/6f95a92e34f00cc5ba092ac4a9e6c65a.png)
 
 vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，适合用于构建单页面应用。
 
-![vue router](media/75bb06a4b8e74125fcc85cd210cfff24.png)
+![vue router](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/75bb06a4b8e74125fcc85cd210cfff24.png)
 
 vuex为vue的一个插件,用来管理共享数据的,局部数据声明在自己组件内部。
 
-![vuex](media/dd88db013ea2c534fca60e3781427e0e.png)
+![vuex](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/dd88db013ea2c534fca60e3781427e0e.png)
 
 1.  vue项目工程中，有很多公用的js函数，为了便于集中管理，可以在utils层统一管理。
 2.  中间件和数据过滤器。
@@ -366,29 +366,29 @@ vuex为vue的一个插件,用来管理共享数据的,局部数据声明在自�
 
 #### MVC架构
 
-![structure_other](media/052c1e68063cc99a14fc7d714e643dc4.png)
+![structure_other](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/052c1e68063cc99a14fc7d714e643dc4.png)
 
 #### 工程架构
 
-![structure_project](media/43803bb2ea82c9fc9083d36e62477864.png)
+![structure_project](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/43803bb2ea82c9fc9083d36e62477864.png)
 
 ### 后端架构设计
 
 后端设计依托boa服务器和CGI，整体架构如图所示：
 
-![boa_cgi](media/56daec04ab5c3aa8e7ff78a6253f729b.png)
+![boa_cgi](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/56daec04ab5c3aa8e7ff78a6253f729b.png)
 
 #### 架构说明
 
 Boa服务器的大致工作流程：
 
-![safe_boa_flow](media/cb07161da25b2ac2937268d30cd269f4.png)
+![safe_boa_flow](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/cb07161da25b2ac2937268d30cd269f4.png)
 
 Boa从新到达的套接字获得HTTP请求(由一个request结构来存储)，并将其保存在队列当中。首先，get_request()将从套接字获得的数据全部保存在request→header_line中，然后调用process_request()来处理在队列中的每一个请求。根据request结构中status所表示的不同状态，将进行不同的处理。如果这个请求符合HTTP协议，则会调用process_option_Iine()将一些头部信息填写到request结构中完成这些环境变量的设置，随后process_header_end()会对用户进行验证。如果验证通过则判断request结构中的is_cgi，若是CGI程序，则调用init_cgi()函数进行处理。
 
 对CGI程序的处理函数init_cgi()首先调用一系列函数完成对CGI环境变量的设置，create_common_env()，complete_env()完成了大多数CGI环境变量的注册工作。采用PIPE(管道)方式，就是将CGI程序的输出重定向到管道，然后Boa从管道读取并转发给客户端浏览器。整个流程结束后，返回到主函数的无限循环中等待处理下一个套接字连接的到达。init_cgi()具体工作流程如图所示：
 
-![init_cgi](media/4df028c2e6a00dff856b500929a6caa2.png)
+![init_cgi](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/4df028c2e6a00dff856b500929a6caa2.png)
 
 ## 系统架构实施
 
@@ -396,7 +396,7 @@ Boa从新到达的套接字获得HTTP请求(由一个request结构来存储)，�
 
 #### Web用例分析
 
-![yongli](media/87c94c396dce9f287c6e8a19f4fdc229.png)
+![yongli](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/87c94c396dce9f287c6e8a19f4fdc229.png)
 
 #### Web功能分析
 
@@ -422,11 +422,11 @@ Boa从新到达的套接字获得HTTP请求(由一个request结构来存储)，�
 
 登录模块涉及登录页面的整体逻辑和登录状态的保持。登录鉴权方式暂定为JWT（JSON Web Token）方式。JWT鉴权流程如图所示：
 
-![login_token](media/717f8ebb0c26232aea99d23641ee580b.png)
+![login_token](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/717f8ebb0c26232aea99d23641ee580b.png)
 
 登录流程图如下所示：
 
-![login_logic](media/a8114a086c1428841c59e6544189e9b1.png)
+![login_logic](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/a8114a086c1428841c59e6544189e9b1.png)
 
 这里注册的流程如果不必要我们可以去除。
 
@@ -436,7 +436,7 @@ Boa从新到达的套接字获得HTTP请求(由一个request结构来存储)，�
 
 数据查询模块涉及数据在前后端之间的传递，主要是后端向前端传递数据并由前端呈现出来。数据查询前后端通信流程图如下：
 
-![data_get_logic](media/16383856936fa1046912302966f661b8.png)
+![data_get_logic](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/16383856936fa1046912302966f661b8.png)
 
 数据查询模块至少包含两个参数：token (String); pageName (String)。
 
@@ -444,11 +444,11 @@ Boa从新到达的套接字获得HTTP请求(由一个request结构来存储)，�
 
 数据设置模块涉及数据在前后端之间的传递，主要是前端向后端传递数据并由后端逻辑将配置设置到后台。数据设置前后端通信流程图如下：
 
-![data_set_logic](media/00c39bec70a982646b7e91e1b0a44c3a.png)
+![data_set_logic](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/00c39bec70a982646b7e91e1b0a44c3a.png)
 
 数据查询和数据设置过程中涉及到数据集的双向绑定，基于Vue的数据双向绑定流程图如下所示：
 
-![data_interaction](media/d2e39c40e87768d33db9ba53771d1f15.png)
+![data_interaction](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/d2e39c40e87768d33db9ba53771d1f15.png)
 
 ### 3.2.3系统拓展分析
 
@@ -482,11 +482,11 @@ vue开发移动端页面时，需要实现页面根据不同设备屏幕进行�
 
 目前我们考虑基于RESTful API规范围绕API展开开发工作。前端、后端和测试人员围绕API工作的逻辑图如下所示：
 
-![api_flow](media/6366d2805b1d4d9a6aa12135310cc715.png)
+![api_flow](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/6366d2805b1d4d9a6aa12135310cc715.png)
 
 在开发过程中前端、后端和测试人员分别要对API进行定义、设计、开发和测试，而主流的开发合作图如下所示
 
-![API_work_team](media/c4791de86b84e35addc409ea1dced6a2.png)
+![API_work_team](https://github.com/FengDushuo/Boa_Vue_Router/tree/main/media/c4791de86b84e35addc409ea1dced6a2.png)
 
 ### 开发过程分析
 
