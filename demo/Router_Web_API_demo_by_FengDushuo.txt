@@ -1,0 +1,294 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Router_Web",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/cgi-bin/config_get.cgi": {
+      "get": {
+        "summary": "读取路由器当前web参数",
+        "x-apifox-folder": "",
+        "x-apifox-status": "designing",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "contentframe",
+            "in": "query",
+            "description": "页面名称",
+            "required": true,
+            "example": "index",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "WebCustom_Entry": {
+                      "type": "object",
+                      "properties": {
+                        "isCTFJSupported": {
+                          "type": "integer"
+                        },
+                        "isCTPONYNSupported": {
+                          "type": "integer"
+                        },
+                        "isCT2PORTSSupported": {
+                          "type": "integer"
+                        },
+                        "isWLanSupported": {
+                          "type": "integer"
+                        },
+                        "isCT1PORTSupported": {
+                          "type": "integer"
+                        },
+                        "isCYE8SFUSupported": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "isCTFJSupported",
+                        "isCTPONYNSupported",
+                        "isCT2PORTSSupported",
+                        "isWLanSupported",
+                        "isCT1PORTSupported",
+                        "isCYE8SFUSupported"
+                      ],
+                      "required": [
+                        "isCTFJSupported",
+                        "isCTPONYNSupported",
+                        "isCT2PORTSSupported",
+                        "isWLanSupported",
+                        "isCT1PORTSupported",
+                        "isCYE8SFUSupported"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "WanInfo_Common": {
+                      "type": "object",
+                      "properties": {
+                        "CycleNum": {
+                          "type": "integer"
+                        },
+                        "CycleValue": {
+                          "type": "integer"
+                        },
+                        "ConnectionError": {
+                          "type": "integer"
+                        },
+                        "APOn": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "CycleNum",
+                        "CycleValue",
+                        "ConnectionError",
+                        "APOn"
+                      ],
+                      "required": [
+                        "CycleNum",
+                        "CycleValue",
+                        "ConnectionError",
+                        "APOn"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "WLan11ac_Common": {
+                      "type": "object",
+                      "properties": {
+                        "APOn": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "APOn"
+                      ],
+                      "required": [
+                        "APOn"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "XPON_LinkCfg": {
+                      "type": "object",
+                      "properties": {
+                        "LinkSta": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "LinkSta"
+                      ],
+                      "required": [
+                        "LinkSta"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "XPON_Common": {
+                      "type": "object",
+                      "properties": {
+                        "trafficStatus": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "trafficStatus"
+                      ],
+                      "required": [
+                        "trafficStatus"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "Info_PonPhy": {
+                      "type": "object",
+                      "properties": {
+                        "FecStatus": {
+                          "type": "integer"
+                        },
+                        "TxPower": {
+                          "type": "integer"
+                        },
+                        "RxPower": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "FecStatus",
+                        "TxPower",
+                        "RxPower"
+                      ],
+                      "required": [
+                        "FecStatus",
+                        "TxPower",
+                        "RxPower"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "Info_PonWanStats": {
+                      "type": "object",
+                      "properties": {
+                        "TxFrameCnt": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "TxFrameCnt"
+                      ],
+                      "required": [
+                        "TxFrameCnt"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "System_Entry": {
+                      "type": "object",
+                      "properties": {
+                        "reboot_type": {
+                          "type": "integer"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "reboot_type"
+                      ],
+                      "required": [
+                        "reboot_type"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "status",
+                    "WebCustom_Entry",
+                    "WanInfo_Common",
+                    "WLan11ac_Common",
+                    "XPON_LinkCfg",
+                    "XPON_Common",
+                    "Info_PonPhy",
+                    "Info_PonWanStats",
+                    "System_Entry"
+                  ],
+                  "required": [
+                    "code",
+                    "status",
+                    "WebCustom_Entry",
+                    "WanInfo_Common",
+                    "WLan11ac_Common",
+                    "XPON_LinkCfg",
+                    "XPON_Common",
+                    "Info_PonPhy",
+                    "Info_PonWanStats",
+                    "System_Entry"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": 200,
+                      "status": "SUCCESS",
+                      "WebCustom_Entry": {
+                        "isCTFJSupported": 0,
+                        "isCTPONYNSupported": 0,
+                        "isCT2PORTSSupported": 0,
+                        "isWLanSupported": 0,
+                        "isCT1PORTSupported": 0,
+                        "isCYE8SFUSupported": 0
+                      },
+                      "WanInfo_Common": {
+                        "CycleNum": 1,
+                        "CycleValue": 2,
+                        "ConnectionError": 0,
+                        "APOn": 1
+                      },
+                      "WLan11ac_Common": {
+                        "APOn": 0
+                      },
+                      "XPON_LinkCfg": {
+                        "LinkSta": "uuuu"
+                      },
+                      "XPON_Common": {
+                        "trafficStatus": "jjj"
+                      },
+                      "Info_PonPhy": {
+                        "FecStatus": 0,
+                        "TxPower": 7,
+                        "RxPower": 8
+                      },
+                      "Info_PonWanStats": {
+                        "TxFrameCnt": 1
+                      },
+                      "System_Entry": {
+                        "reboot_type": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

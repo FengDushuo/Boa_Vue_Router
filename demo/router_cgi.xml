@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--********************************************************************************-->
+<!--********************************CGI请求信令结构描述*****************************-->
+<!--********************************************************************************-->
+<contentroot>	<!--所有cgi请求信令的根节点-->
+	<authenticationinfo type="1.0">	<!--鉴权信息节点-->
+		<username></username>
+		<password></password>
+		<authenticationid></authenticationid>
+	</authenticationinfo>
+	<Req>							<!--携带请求信息的节点(此节点需要替换为本文档中为每条请求定义的信令)-->
+		<!--这里省的是请求信息-->
+	</Req>
+<contentroot>
+
+
+<!--********************************************************************************-->
+<!--********************************鉴权机制****************************************-->
+<!--********************************************************************************-->
+<!--说明: 除了不要任何权限的请求信令外,其他所有cgi请求信令都需要携带鉴权信息(即authenticationinfo节点)-->
+<authenticationinfo type="1.0">		<!--鉴权信息节点-->
+	<username></username>	<!--xs:string 用户名-->
+	<password></password>	<!--xs:string 生成算法是Base64(bin2hex(MD5(username + "," + userpassword + ","  + authenticationid)))-->
+	<authenticationid></authenticationid>	<!--xs:string 鉴权ID(通过信令"/cgiapp/system/GetAuthenticationid"获取,每次登录期间只需要获取一次)-->
+</authenticationinfo>
+
+
+<!--********************************************************************************-->
+<!--****************************通用操作结果响应************************************-->
+<!--********************************************************************************-->
+
+<!--功能:通用操作结果响应-->
+<!--说明:任何请求失败了之后,都有可能返回此相应-->
+<responsestatus>
+	<requesturl></requesturl>				<!--对应请求中对应的URL-->
+	<statuscode></statuscode>				<!--错误码-->
+	<statusstring></statusstring>			<!--failure or success-->
+	<substatusstring></substatusstring>		<!--错误码的详细解释-->
+	<retrytimes></retrytimes>				<!--xs:integer (可选,用户名/密码错误时有效)剩余尝试次数-->
+	<unlockTime></unlockTime>				<!--xs:integer (可选,用户被禁止登陆时有效)锁定剩余时间(单位:分钟)-->
+</responsestatus>
+
+
+<!--********************************************************************************-->
+<!--****************************CGI信令URL分类**************************************-->
+<!--********************************************************************************-->
+<!--
+信令分类说明:
+/cgiapp/getcap	   	此URL路径代表获取路由器自身相关能力
+/cgiapp/system     	此URL路径代表系统相关功能(如时间设置、重启和路由器自身状态的查询)
+/cgiapp/security   	此URL路径代表用户信息及权限相关功能
+/cgiapp/network    	此URL路径代表网络相关功能(路由器网络参数设置、一些网络功能)
+-->
+
+<!--********************************************************************************-->
+<!--****************************/cgiapp/getcap**************************************-->
+<!--********************************************************************************-->
+
+<!--功能:获取设备能力-->
+<!--URL:/cgiapp/getcap?DevModel=true&Active=true&UserCap=true-->
+<!--方法:GET-->
+<!--所需权限: SysPower_None, ChnPower_None-->
+<!--Request:none-->
+<!--Response:-->
+<capinfo>
+    <DevModel></DevModel>    	                  <!--xs:string 	路由器的型号-->
+	<Active></Active>        	                  <!--xs:boolean	设备是否激活-->
+	<UserCap></UserCap>			                  <!--xs:boolean	是否支持用户管理功能-->
+	<NetMode_Dhcp></NetMode_Dhcp>		          <!--xs:boolean	是否支持上网设置->模式选择->DHCP-->
+	<NetMode_Static></NetMode_Static>		  	  <!--xs:boolean	是否支持上网设置->模式选择->静态IP-->
+	<NetMode_PPPoE></NetMode_PPPoE>		  		  <!--xs:boolean	是否支持上网设置->模式选择->路由-宽带拨号上网(PPPoE)-->
+	<NetMode_WiFiRelay></NetMode_WiFiRelay>		  <!--xs:boolean	是否支持上网设置->模式选择->WiFi中继-->
+	<NetMode_Bridging></NetMode_Bridging>		  <!--xs:boolean	是否支持上网设置->模式选择->桥接-->
+</capinfo>
+
+<!--********************************************************************************-->
+<!--****************************/cgiapp/Getparam/NetWorkMode**************************************-->
+<!--********************************************************************************-->
+
+<!--功能:获取上网模式参数-->
+<!--URL:/cgiapp/Getparam?NetWorkMode-->
+<!--方法:POST-->
+<!--所需权限: SysPower_None, ChnPower_None-->
+<!--Request:-->
+<GetNetWorkModeParamReq>
+	<NetMode_DhcpParam></NetMode_DhcpParam>		          <!--xs:boolean	是否获取上网设置->模式选择->DHCP参数-->
+	<NetMode_StaticParam></NetMode_StaticParam>		  	  <!--xs:boolean	是否获取上网设置->模式选择->静态IP参数-->
+	<NetMode_PPPoEParam></NetMode_PPPoEParam>		      <!--xs:boolean	是否获取上网设置->模式选择->路由-宽带拨号上网(PPPoE)参数-->
+	<NetMode_WiFiRelayParam></NetMode_WiFiRelayParam>	  <!--xs:boolean	是否获取上网设置->模式选择->WiFi中继参数-->
+	<NetMode_BridgingParam></NetMode_BridgingParam>		  <!--xs:boolean	是否获取上网设置->模式选择->桥接参数-->
+</GetNetWorkModeParamReq>
+<!--Response:-->
+<GetNetWorkModeParamRsp>
+	<DhcpParam>		          							<!--xs:boolean	上网设置->模式选择->DHCP参数-->
+		<IpVersion></IpVersion>    	                    <!--xs:integer 	IPv4、IPv4/IPv6-->
+		<StaticDNS></StaticDNS>        	                <!--xs:boolean	静态DNS使能-->
+	</DhcpParam>
+	<StaticParam>		 						        <!--xs:boolean	上网设置->模式选择->静态IP参数-->
+		<IpVersion></IpVersion>    	                    <!--xs:integer 	IPv4、IPv4/IPv6-->
+		<WanIpAddress></WanIpAddress>
+		<WanSubnetMask></WanSubnetMask>
+		<DefaultGateway></DefaultGateway>
+		<DnsPrimary></DnsPrimary>
+		<DnsSecondary></DnsSecondary>
+	</StaticParam>
+	<PPPoEParam>		                                <!--xs:boolean	上网设置->模式选择->路由-宽带拨号上网(PPPoE)参数-->
+	</PPPoEParam>
+	<WiFiRelayParam>					                <!--xs:boolean	上网设置->模式选择->WiFi中继参数-->    
+	</WiFiRelayParam>
+	<BridgingParam>		                                <!--xs:boolean	上网设置->模式选择->桥接参数-->
+	</BridgingParam>
+</GetNetWorkModeParamRsp>
+
+<!--********************************************************************************-->
+<!--****************************/cgiapp/Setparam/NetWorkMode**************************************-->
+<!--********************************************************************************-->
+
+<!--功能:设置上网模式-->
+<!--URL:/cgiapp/Setparam?NetWorkMode-->
+<!--方法:POST-->
+<!--所需权限: SysPower_None, ChnPower_None-->
+<!--Request:-->
+<SetNetWorkModeParamReq>
+	<!--内容格式同<GetNetWorkModeParamRsp>-->
+</SetNetWorkModeParamReq>
+<!--Response:复用<responsestatus>-->
